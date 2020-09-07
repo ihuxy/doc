@@ -1,4 +1,6 @@
-## Hooks-use
+## 常用Hooks
+
+![useClickAway](./useClickAway.png)
 
 
 ### useAsync
@@ -93,6 +95,21 @@ const useSearch=(initState,hlResult=toDom)=>{
     }
   },[]);
   return [state,setList];
+};
+
+```
+
+### useWinResize
+
+```
+const useWinResize=()=>{
+  const [state,setRaf]=useRaf(getViewportSize());
+  const handler=useCallback(()=>setRaf(getViewportSize()),[]);
+  useEffect(()=>{
+    window.addEventListener('resize',handler,false);
+    return ()=>window.removeEventListener('resize',handler,false);
+  },[handler]);
+  return state;
 };
 
 ```

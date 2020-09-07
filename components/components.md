@@ -25,4 +25,12 @@ const Anico=({type})=>{
   </span>;
 };
 
+图标 type：
+
+- right：右箭头
+- bottom：下箭头
+- close：关闭
+- play：播放
+- pause：暂停
+
 ```
