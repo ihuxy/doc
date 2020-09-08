@@ -95,7 +95,7 @@ const {components,loading}=useRouter(configs);
 
 - url：路径
 - name：展示名
-- icon：图表
+- icon：图标
 - redirect：重定向
 - children：子菜单
 - component：页面

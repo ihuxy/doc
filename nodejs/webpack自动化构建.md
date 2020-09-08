@@ -107,7 +107,7 @@ module.exports={
 module.exports={
   hooks:{
     'pre-commit':'npm run lint && npm run test',
-    'pre-push':'npm run test',
+    // 'pre-push':'npm run test',
     'commit-msg':'commitlint -E HUSKY_GIT_PARAMS',
   },
 };
@@ -115,6 +115,17 @@ module.exports={
 ```
 
 ### nodejs启动服务
+
+```
+app.listen(app.get('port'),err=>{
+  if(err){
+    console.log(err);
+    return false;
+  }
+  console.log('\n服务已启动! '.black+'✓'.green);
+});
+
+```
 
 #### 配置文件
 
@@ -247,7 +258,7 @@ export default {
   "eslint": "eslint app/**/*.{js,jsx}",
   "stylelint": "stylelint app/**/*.{css,less}",
   "lint": "npm run eslint && npm run stylelint",
-  "lint-fix": "eslint --fix app/**/**/**/*.{js,jsx} app/**/**/**/**/*.{js,jsx}"
+  "lint-fix": "eslint --fix app/**/*.{js,jsx}"
 },
 
 ```
