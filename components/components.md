@@ -34,3 +34,25 @@ const Anico=({type})=>{
 - pause：暂停
 
 ```
+
+### ErrorBoundary
+
+```
+export default class ErrorBoundary extends React.Component{
+  state={
+    error:null,
+  };
+  static getDerivedStateFromError(error){
+    return {error};
+  }
+  render(){
+    const {error}=this.state;
+    const {fallback,children}=this.props;
+    if(error){
+      return fallback(error);
+    }
+    return children;
+  }
+}
+
+```
