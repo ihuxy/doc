@@ -1,6 +1,12 @@
-## webpack自动化构建
+## 前端工程化工程配置
 
-### babel.config配置
+> 工欲善其事，必先利其器。
+
+之前讨论过前端工程化，工程化可以 ***提高应用体验，提高开发效率，降低开发门槛，降低维护成本*** 等优点，今天我们来讲一下开发中的配置文件，我们可以通过修改配置文件，来满足不同需求的快速开发。
+
+### webpack
+
+#### babel.config配置
 
 ```
 const config=api=>{
@@ -40,7 +46,7 @@ const config=api=>{
 
 ```
 
-### eslint代码规范
+#### eslint代码规范
 
 ```
 module.exports={
@@ -68,7 +74,7 @@ module.exports={
 
 ```
 
-### jest单元测试
+#### jest单元测试
 
 ```
 module.exports={
@@ -101,7 +107,7 @@ module.exports={
 
 ```
 
-### husky代码提交钩
+#### husky代码提交钩
 
 ```
 module.exports={
@@ -114,7 +120,9 @@ module.exports={
 
 ```
 
-### nodejs启动服务
+### nodejs
+
+#### nodejs服务
 
 ```
 app.listen(app.get('port'),err=>{
@@ -214,6 +222,8 @@ app.get('*',(req,res)=>{
 
 ### 框架配置
 
+#### 路由及全局配置
+
 ```
 const browserRouter=!process.env.isDev;
 
@@ -242,11 +252,14 @@ export default {
   beforeRender,
   basepath,
   // afterRender,
+  {...otherConfigs},
 };
 
 ```
 
-###  命令工具
+### package.json配置
+
+#### 命令工具
 
 ```
 "scripts": {
