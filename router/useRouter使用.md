@@ -1,4 +1,8 @@
-## router的使用
+## useRouter的使用
+
+上次讲过 [useRouter](./useRouter.md) 的实现及配置，今天来讲一下它的使用。
+
+useRouter是基于popstate和hashchange来监听路由变化，支持history.pushState、history.replaceState来切换路由，并提供了一些常用工具，如：store（状态管理）、eventBus（订阅发布）等。详细使用可见 [demo](https://github.com/ihuxy/huxy) 。
 
 router注入了全局管理工具，
 
@@ -25,7 +29,6 @@ const Menu1=props=>{
 }
 
 ```
-
 
 ### eventBus
 
@@ -83,11 +86,26 @@ const configs={
   browserRouter:true,
   title:'app1',
   beforeRender:input=>{},
+  afterRender:info=>{},
   basepath:'/app',
   customCfg:{},
   customFunc:()=>{},
 }
 const {components,loading}=useRouter(configs);
+
+```
+
+#### 路由拦截
+
+```
+const beforeRender=({path,params})=>{
+  dosomething(path,params);
+  return {path,params};
+};
+
+const afterRender=(routerInfo)=>{
+  dosomething(routerInfo);
+};
 
 ```
 
