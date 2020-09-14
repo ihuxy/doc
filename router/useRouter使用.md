@@ -32,7 +32,7 @@ const Menu1=props=>{
 
 ### eventBus
 
-[emitter](./emitter)
+[emitter](../utils/emitter.md)
 
 
 ### store
@@ -125,6 +125,8 @@ const afterRender=(routerInfo)=>{
 
 
 ### 数据请求
+
+基于 [useAsync](../use/useasync.md) 和 [store](../utils/store.md) 来实现数据请求和全局数据管理。
 
 ```
 const routers=[
