@@ -374,3 +374,29 @@ const throttle=(func,delay=60)=>{
 ### fetch
 
 [fetch](./fetcher.md)
+
+
+### merge
+
+```
+const mergeObj=(base,extend)=>{
+  if(!isObject(base)){
+    return extend;
+  }
+  if(!isObject(extend)){
+    return base;
+  }
+  const newObj=clone(base);
+  for(let k in extend){
+    if(isObject(newObj[k])&&isObject(extend[k])){
+      newObj[k]=mergeObj(newObj[k],extend[k]);
+    }else if(isArray(newObj[k])&&isArray(extend[k])){
+      newObj[k]=mergeArr(newObj[k],extend[k]);
+    }else{
+      newObj[k]=extend[k];
+    }
+  }
+  return newObj;
+};
+
+```

@@ -116,7 +116,7 @@ const useWinResize=()=>{
 
 ### useEleResize
 
-[useViewSize](useViewSize.md)
+[useViewSize](./useViewSize.md)
 
 ```
 const useEleResize=(element=null)=>{
