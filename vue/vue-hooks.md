@@ -7,6 +7,8 @@
 - 依赖 [] --> watch、watchEffect
 - useRef --> ref
 
+稍微做了下尝试，将react的hooks拿来即可用了。
+
 ![layout](./layout.png)
 
 ### useRouter
@@ -92,7 +94,7 @@ export default Link;
 
 ### use
 
-可参考 [react use](../use/use) 使用文档。
+可参考 [react use](../use/use.md) 使用文档。
 
 ### useRaf
 
