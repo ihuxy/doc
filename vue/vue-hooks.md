@@ -11,7 +11,7 @@
 
 ### useRouter
 
-[react useRouter](../router/useRouter.md)
+可参考 [react useRouter](../router/useRouter.md) 使用文档。
 
 ```js
 const useRouter=initState=>{
@@ -92,7 +92,7 @@ export default Link;
 
 ### use
 
-[react use](../use/use)
+可参考 [react use](../use/use) 使用文档。
 
 ### useRaf
 
