@@ -96,7 +96,7 @@ export default Link;
 
 可参考 [react use](../use/use.md) 使用文档。
 
-### useRaf
+#### useRaf
 
 ```js
 const useRaf=(initState={})=>{
@@ -114,7 +114,7 @@ const useRaf=(initState={})=>{
 
 ```
 
-### useScroll
+#### useScroll
 
 ```js
 const useScroll=(element=null)=>{
@@ -132,7 +132,7 @@ const useScroll=(element=null)=>{
 
 ```
 
-### useWinResize
+#### useWinResize
 
 ```js
 const useWinResize=()=>{
@@ -149,7 +149,7 @@ const useWinResize=()=>{
 
 ```
 
-### useClickAway
+#### useClickAway
 
 ```js
 const useClickAway=(elRef,handleEvent,events='click')=>{
