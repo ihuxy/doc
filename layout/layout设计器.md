@@ -155,7 +155,7 @@ const changeFontSize=useDebounce(value=>document.documentElement.style.setProper
 ![切换](./switch.gif)
 
 ```
-type=>store.setState({'set-menuType':{menuType:type}});
+const switch=type=>store.setState({'set-menuType':{menuType:type}});
 
 ```
 
