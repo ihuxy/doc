@@ -20,7 +20,7 @@
 
 ![大小设计](./size.gif)
 
-```
+```javascript
 const dark=[
   {
     key:'--maxWidth',
@@ -78,7 +78,7 @@ const dark=[
 
 ![颜色设计](./color.gif)
 
-```
+```javascript
 const dark=[
   {
     key:'--bannerBgColor',
@@ -145,7 +145,7 @@ const dark=[
 ```
 #### 字体大小设计
 
-```
+```javascript
 const changeFontSize=useDebounce(value=>document.documentElement.style.setProperty('--rootSize',value),delay);
 
 ```
@@ -154,7 +154,7 @@ const changeFontSize=useDebounce(value=>document.documentElement.style.setProper
 
 ![切换](./switch.gif)
 
-```
+```javascript
 const switch=type=>store.setState({'set-menuType':{menuType:type}});
 
 ```

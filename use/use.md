@@ -9,7 +9,7 @@
 
 ### useUpdate
 
-```
+```javascript
 const incrementParameter=num=>++num;
 const useUpdate=()=>{
   const [,setState]=useState(0);
@@ -20,7 +20,7 @@ const useUpdate=()=>{
 
 ### useCancelablePromise
 
-```
+```javascript
 const useCancelablePromise=(deps=[])=>{
   const promises=useRef([]);
   useEffect(()=>{
@@ -43,7 +43,7 @@ const useCancelablePromise=(deps=[])=>{
 
 ### useRaf
 
-```
+```javascript
 const useRaf=initialState=>{
   const frame=useRef(0);
   const [state,setState]=useState(initialState);
@@ -63,7 +63,7 @@ const useRaf=initialState=>{
 
 ### useScroll
 
-```
+```javascript
 const useScroll=(element=null)=>{
   const [state,setRaf]=useRaf(getOffset(element));
   const handler=useCallback(()=>setRaf(getOffset(element)),[element]);
@@ -81,7 +81,7 @@ const useScroll=(element=null)=>{
 
 [useSearch](./useSearch.md)
 
-```
+```javascript
 const useSearch=(initState,hlResult=toDom)=>{
   const [state,setState]=useState(initState);
   const setList=useCallback((...args)=>{
@@ -101,7 +101,7 @@ const useSearch=(initState,hlResult=toDom)=>{
 
 ### useWinResize
 
-```
+```javascript
 const useWinResize=()=>{
   const [state,setRaf]=useRaf(getViewportSize());
   const handler=useCallback(()=>setRaf(getViewportSize()),[]);
@@ -118,7 +118,7 @@ const useWinResize=()=>{
 
 [useViewSize](./useViewSize.md)
 
-```
+```javascript
 const useEleResize=(element=null)=>{
   const {bind,destroy}=resize(element);
   const [state,setRaf]=useRaf(getViewportSize(element));
@@ -134,7 +134,7 @@ const useEleResize=(element=null)=>{
 
 ### useClickAway
 
-```
+```javascript
 const useClickAway=(ref,handleEvent,events='click')=>{
   const handler=useCallback(event=>{
     const el=ref?.current??ref;
@@ -154,7 +154,7 @@ const useClickAway=(ref,handleEvent,events='click')=>{
 
 ### useDebounce
 
-```
+```javascript
 const useDebounce=(fn,delay)=>useMemo(()=>debounce(fn,delay),[delay]);
 
 ```

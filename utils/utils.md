@@ -4,7 +4,7 @@
 
 ### curry
 
-```
+```javascript
 const curry=(fn,arity=fn.length)=>{
   const curried=(...args)=>args.length>=arity?fn(...args):(...restArgs)=>curried(...args,...restArgs);
   return curried;
@@ -16,7 +16,7 @@ const curry=(fn,arity=fn.length)=>{
 
 [compose](./compose.md)
 
-```
+```javascript
 const compose=(...fns)=>(...args)=>{
   const [...tmpFns]=fns;
   const composed=(...restArgs)=>{
@@ -32,7 +32,7 @@ const compose=(...fns)=>(...args)=>{
 
 ### clone
 
-```
+```javascript
 const clone=obj=>{
   if(!isArray(obj)&&!isObject(obj)){
     return obj;
@@ -49,7 +49,7 @@ const clone=obj=>{
 
 ### isEqual
 
-```
+```javascript
 const isEqual=(a,b)=>{
   const typeA=getType(a);
   const typeB=getType(b);
@@ -83,14 +83,14 @@ const isEqual=(a,b)=>{
 
 ### getType
 
-```
+```javascript
 const getType=value=>Object.prototype.toString.call(value).slice(8,-1).toLowerCase();
 
 ```
 
 ### filter
 
-```
+```javascript
 const filter=(list,keyword,fields=[],exact=false)=>{
   if(!isValidArr(list)){
     return [];
@@ -123,7 +123,7 @@ const filter=(list,keyword,fields=[],exact=false)=>{
 
 ### pick
 
-```
+```javascript
 const pick=(obj,arrKeys)=>{
   if(obj==null||typeof obj!=='object'){
     return {};
@@ -147,7 +147,7 @@ const pick=(obj,arrKeys)=>{
 
 ### sort
 
-```
+```javascript
 const sort=(arr,key=null,desc=false)=>{
   return arr.sort((x,y)=>{
     const a=key?x[key]:x;
@@ -172,7 +172,7 @@ const sort=(arr,key=null,desc=false)=>{
 
 ### unique
 
-```
+```javascript
 const unique=(arr,key='id')=>{
   if(!isValidArr(arr)){
     return arr;
@@ -193,7 +193,7 @@ const unique=(arr,key='id')=>{
 
 ### traverItem
 
-```
+```javascript
 const traverItem=fn=>(arr,childKey='children')=>{
   if(!isArray(arr)){
     return arr;
@@ -216,7 +216,7 @@ const traverItem=fn=>(arr,childKey='children')=>{
 
 ### flatten
 
-```
+```javascript
 const flatten=(data,childKey='children')=>{
   const newArr=[];
   traverItem(item=>{
@@ -230,7 +230,7 @@ const flatten=(data,childKey='children')=>{
 
 ### getValue
 
-```
+```javascript
 const keyArr=keys=>keys.replace(/\[['"]?(.*?)['"]?\]/g,'.$1').split('.');
 const getValue=(object,keys)=>{
   keys=keyArr(keys);
@@ -254,14 +254,14 @@ const getValue=(object,keys)=>{
 
 ### sleep
 
-```
+```javascript
 const sleep=(ms=350)=>new Promise(resolve=>setTimeout(resolve,ms));
 
 ```
 
 ### memoize
 
-```
+```javascript
 const memoize=(fn,len=100)=>{
   let cache=[];
   return (...args)=>{
@@ -283,7 +283,7 @@ const memoize=(fn,len=100)=>{
 
 ### storage
 
-```
+```javascript
 const storage={
   get:(name)=>{
     let data=null;
@@ -312,7 +312,7 @@ const storage={
 
 ### session
 
-```
+```javascript
 const session={
   get:(name)=>{
     let data=null;
@@ -341,7 +341,7 @@ const session={
 
 ### debounce
 
-```
+```javascript
 const debounce=(func,wait=60)=>{
   let timer=null;
   return function (...args){
@@ -354,7 +354,7 @@ const debounce=(func,wait=60)=>{
 
 ### throttle
 
-```
+```javascript
 const throttle=(func,delay=60)=>{
   let timer=null,start=0;
   return function (...args){
@@ -378,7 +378,7 @@ const throttle=(func,delay=60)=>{
 
 ### merge
 
-```
+```javascript
 const mergeObj=(base,extend)=>{
   if(!isObject(base)){
     return extend;

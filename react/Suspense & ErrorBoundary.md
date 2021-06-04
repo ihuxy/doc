@@ -8,7 +8,7 @@
 
 Suspense 不是一个数据请求的库，而是一个机制。这个机制是用来给数据请求库向 React 通信说明某个组件正在读取的数据当前仍不可用。通信之后，React 可以继续等待数据的返回并更新 UI。
 
-```
+```javascript
 const Index=props=>{
   return <div>
     <Row gutter={[12,12]}>
@@ -42,7 +42,7 @@ const Index=props=>{
 
 尽早开始获取数据，在渲染之前就进行数据获取。
 
-```
+```javascript
 const UserInfo=({userinfo,title})=>{
   const {result}=userinfo.read();
   const info=Object.keys(result).map(v=>({key:v,value:result[v]}));
@@ -71,7 +71,7 @@ const Allusers=({users,title})=>{
 
 router.jsx
 
-```
+```javascript
 {
   path:'/suspense',
   name:'suspense',
@@ -86,7 +86,7 @@ router.jsx
 ```
 suspense/index.jsx
 
-```
+```javascript
 const Index=props=>{
   let {userinfo,users}=props;
   userinfo=userinfo?.result;
@@ -119,7 +119,7 @@ const Index=props=>{
 
 [useRouter](../router/useRouter.md) 默认就为路由加上了`ErrorBoundary`，展示当前错信息，当然你也可以自定义展示界面。
 
-```
+```javascript
 import React from 'react';
 
 export default class ErrorBoundary extends React.Component{
@@ -146,7 +146,7 @@ export default class ErrorBoundary extends React.Component{
 
 自定义错误展示内容。
 
-```
+```javascript
 loadError(new Error('loadError'))
 
 ```
@@ -155,7 +155,7 @@ loadError(new Error('loadError'))
 
 fallback为出错时展示的内容。
 
-```
+```javascript
 <ErrorBoundary fallback={(error,info)=>loadError(error,info)}>
   <Comp />
 </ErrorBoundary>
@@ -164,7 +164,7 @@ fallback为出错时展示的内容。
 
 #### HandleError
 
-```
+```javascript
 <HandleError>
   <Comps />
 </HandleError>

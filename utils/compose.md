@@ -84,17 +84,22 @@ JavaScript 中最简单的函数就是Array。
 
 柯里化是一个把具有较多 arity 的函数转换成具有较少 arity 函数的过程。柯里化可以使我们只关心函数的部分参数，使函数的用途更加清晰，调用更加简单。
 
-	const curry=(fn,arity=fn.length)=>{
-	  const curried=(...args)=>args.length>=arity?fn(...args):(...restArgs)=>curried(...args,...restArgs);
-	  return curried;
-	};
+```javascript
+const curry=(fn,arity=fn.length)=>{
+  const curried=(...args)=>args.length>=arity?fn(...args):(...restArgs)=>curried(...args,...restArgs);
+  return curried;
+};
+
+```
 	
 eg:
+
+```javascript
+const add=(a,b,c,d,e)=>a+b+c+d+e;
 	
-	const add=(a,b,c,d,e)=>a+b+c+d+e;
-	
-	const addResult=curry(add)(1)(3)(5)(7)(9); //25
-	
+const addResult=curry(add)(1)(3)(5)(7)(9); //25
+
+```
 
 ### 组合（compose）
 
@@ -102,25 +107,31 @@ eg:
 
 函数组合是为数据流创建一个包含有若干函数的管道。在管道入口，你导入数据，在管道出口，你获得了加工好的数据。但为了让管道工作，管道上的每个函数接受的输入应当与上一步函数的输出拥有同样的数据类型。
 
-	const compose=(...fns)=>(...args)=>{
-	  const [...tmpFns]=fns;
-	  const composed=(...restArgs)=>{
-	    if(tmpFns.length===0){
-	      return restArgs[0];
-	    }
-	    return composed(tmpFns.pop()(...restArgs));
-	  };
-	  return composed(...args);
-	};
+```javascript
+const compose=(...fns)=>(...args)=>{
+  const [...tmpFns]=fns;
+  const composed=(...restArgs)=>{
+    if(tmpFns.length===0){
+      return restArgs[0];
+    }
+    return composed(tmpFns.pop()(...restArgs));
+  };
+  return composed(...args);
+};
+
+```
 
 eg:
 
-	const getName=id=>id+'-name';
-	const getAge=name=>name.split('-')[0];
+```javascript
+const getName=id=>id+'-name';
+const getAge=name=>name.split('-')[0];
 	
-	const getAgeById=compose(getAge,getName);
-	const age1=getAgeById(18); //18
-	const age2=getAgeById(30); //30
+const getAgeById=compose(getAge,getName);
+const age1=getAgeById(18); //18
+const age2=getAgeById(30); //30
+
+```
 
 柯里化带给我们的好处：
 
